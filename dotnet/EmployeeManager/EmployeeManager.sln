@@ -5,9 +5,11 @@ VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DE9B7F53-4D1F-4EAC-AF9F-A7B9C74C8310}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManager.Api", "src\EmployeeManager.Api\EmployeeManager.Api.csproj", "{55E230FA-17A5-4148-887B-53E50AB917DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManager.Api", "src\EmployeeManager.Api\EmployeeManager.Api.csproj", "{55E230FA-17A5-4148-887B-53E50AB917DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManager.Domain", "src\EmployeeManager.Domain\EmployeeManager.Domain.csproj", "{D80C25DB-8500-4906-BB70-1A4EC2A5FACA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManager.Domain", "src\EmployeeManager.Domain\EmployeeManager.Domain.csproj", "{D80C25DB-8500-4906-BB70-1A4EC2A5FACA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManager.Infrastructure", "src\EmployeeManager.Infrastructure\EmployeeManager.Infrastructure.csproj", "{ED22A2B2-B9EA-4644-B612-28B748E26FB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{D80C25DB-8500-4906-BB70-1A4EC2A5FACA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D80C25DB-8500-4906-BB70-1A4EC2A5FACA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D80C25DB-8500-4906-BB70-1A4EC2A5FACA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED22A2B2-B9EA-4644-B612-28B748E26FB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED22A2B2-B9EA-4644-B612-28B748E26FB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED22A2B2-B9EA-4644-B612-28B748E26FB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED22A2B2-B9EA-4644-B612-28B748E26FB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +36,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{55E230FA-17A5-4148-887B-53E50AB917DD} = {DE9B7F53-4D1F-4EAC-AF9F-A7B9C74C8310}
 		{D80C25DB-8500-4906-BB70-1A4EC2A5FACA} = {DE9B7F53-4D1F-4EAC-AF9F-A7B9C74C8310}
+		{ED22A2B2-B9EA-4644-B612-28B748E26FB0} = {DE9B7F53-4D1F-4EAC-AF9F-A7B9C74C8310}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0E30C845-A877-4E4F-A311-BB96F8CD9A13}
