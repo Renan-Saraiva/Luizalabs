@@ -19,3 +19,5 @@ Apos a definição do repositório do projeto, é necessário criar a base de da
 ![update](https://user-images.githubusercontent.com/11603630/57160363-f1d51c00-6dbe-11e9-94bd-1e9f1d3ac258.PNG)
 
 Após isso é possível executar o projeto.
+
+O painel administrativo da aplicação pode ser acessado pela URL http://localhost:8000/Admin.html
