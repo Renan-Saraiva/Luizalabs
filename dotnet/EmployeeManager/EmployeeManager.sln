@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManager.Api", "src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManager.Domain", "src\EmployeeManager.Domain\EmployeeManager.Domain.csproj", "{D80C25DB-8500-4906-BB70-1A4EC2A5FACA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManager.Infrastructure", "src\EmployeeManager.Infrastructure\EmployeeManager.Infrastructure.csproj", "{ED22A2B2-B9EA-4644-B612-28B748E26FB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManager.Infrastructure", "src\EmployeeManager.Infrastructure\EmployeeManager.Infrastructure.csproj", "{ED22A2B2-B9EA-4644-B612-28B748E26FB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

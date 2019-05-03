@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace EmployeeManager.Domain.Models
 {
@@ -16,6 +13,7 @@ namespace EmployeeManager.Domain.Models
 
         [Required]
         [MaxLength(200)]
+        [EmailAddress]
         public string Email { get; set; }
 
         [Required]

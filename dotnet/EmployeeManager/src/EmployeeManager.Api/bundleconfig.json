@@ -1,0 +1,32 @@
+[
+  {
+    "outputFileName": "wwwroot/css/admin.min.css",
+    "inputFiles": [
+      "wwwroot/css/admin.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/App.min.js",
+    "inputFiles": [
+      "wwwroot/js/App.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/Services/EmployeeService.min.js",
+    "inputFiles": [
+      "wwwroot/js/Services/EmployeeService.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/Controllers/EmployeeManager.min.js",
+    "inputFiles": [
+      "wwwroot/js/Controllers/EmployeeManager.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/Controllers/EmployeeController.min.js",
+    "inputFiles": [
+      "wwwroot/js/Controllers/EmployeeController.js"
+    ]
+  }
+]

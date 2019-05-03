@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />    
+    <title>Employee Manager Admin</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="css/admin.min.css" rel="stylesheet" />
+</head>
+<body ng-app="EmployeeManager" ng-controller="EmployeeController">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div class="card">
+                    <h5 class="card-header">
+                        Employees
+                        <a href="#" class="btn btn-primary btn-sm right" ng-if="employees.length > 0" data-toggle="modal" data-target="#employeeEdit" ng-click="openModal()">
+                            <i class="fas fa-plus-square"></i>&nbsp;&nbsp; New employee
+                        </a>
+                    </h5>
+                    <div class="card-body" ng-if="employees.length > 0">
+                        <table class="table table-bordered">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Department</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="employee in employees">
+                                    <td>{{ employee.name }}</td>
+                                    <td>{{ employee.email }}</td>
+                                    <td>{{ employee.department }}</td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-danger btn-sm" title="Delete" data-toggle="modal" data-target="#employeeDelete" ng-click="openModalDelete(employee)"><i class="fas fa-user-times"></i></button>
+                                        <button type="button" class="btn btn-info btn-sm" title="Edit" data-toggle="modal" data-target="#employeeEdit" ng-click="openModal(employee)"><i class="fas fa-user-edit"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-body" ng-if="employees.length == 0">
+                        <h5 class="card-title">There are no employees</h5>
+                        <p class="card-text">Click below to add an employee.</p>
+                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#employeeEdit" ng-click="openModal()"><i class="fas fa-plus-square"></i>&nbsp;&nbsp; New employee</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="employeeEdit" tabindex="-1" role="dialog" data-backdrop="static">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form name="employeeForm" novalidate>
+                        <div class="modal-header">
+                            <h5 class="modal-title">Employee</h5>
+                            <button type="button" class="close" data-dismiss="modal" ng-click="resetForm(employeeForm)"><span>&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="name" class="col-form-label">Name *</label>
+                                <input type="text" class="form-control" ng-class="{ 'is-invalid' : employeeForm.name.$invalid && !employeeForm.name.$pristine }" id="name" maxlength="200" placeholder="Employee's name" name="name" ng-model="currentEmployee.name" required>
+                                <div ng-show="employeeForm.name.$invalid && !employeeForm.name.$pristine" class="invalid-feedback">Employee's name is required.</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="name" class="col-form-label">Email *</label>
+                                <input type="email" class="form-control" ng-class="{ 'is-invalid' : employeeForm.email.$invalid && !employeeForm.email.$pristine }" maxlength="200" id="email" placeholder="Employee's email" name="email" ng-model="currentEmployee.email" required>
+                                <div ng-show="employeeForm.email.$error.required && !employeeForm.email.$pristine" class="invalid-feedback">Employee's email is required.</div>
+                                <div ng-show="employeeForm.email.$error.email && !employeeForm.email.$pristine" class="invalid-feedback">Employee's email is invalid.</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="department" class="col-form-label">Department *</label>
+                                <input type="text" class="form-control" ng-class="{ 'is-invalid' : employeeForm.department.$invalid && !employeeForm.department.$pristine }" maxlength="100" id="department" name="department" placeholder="Employee's department" ng-model="currentEmployee.department" required>
+                                <div ng-show="employeeForm.department.$invalid && !employeeForm.department.$pristine" class="invalid-feedback">Employee's department is required.</div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" ng-click="resetForm(employeeForm)">Close</button>
+                            <button type="submit" class="btn btn-primary" ng-click="save(employeeForm)" ng-disabled="employeeForm.$invalid" data-dismiss="modal">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="employeeDelete" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Confirm Delete</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>You are about to delete <b>{{ prospectEmployeeToDelete.name }}</b> employee's, this procedure is irreversible.</p>
+                        <p>Do you want to proceed?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-danger btn-ok" data-dismiss="modal" ng-click="delete()"><i class="far fa-trash-alt"></i>&nbsp;&nbsp; Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js" crossorigin="anonymous"></script>
+    <script src="js/App.min.js"></script>
+    <script src="js/Services/EmployeeService.min.js"></script>
+    <script src="js/Controllers/EmployeeController.min.js"></script>
+</body>
+</html>

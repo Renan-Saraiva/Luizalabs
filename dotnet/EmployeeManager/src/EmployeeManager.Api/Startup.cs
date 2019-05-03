@@ -43,6 +43,7 @@ namespace EmployeeManager.Api
                 app.UseHsts();
             }
 
+            app.UseStaticFiles();
             app.UseCors("EmployeeManagerPolicy");
             app.UseMvc();
         }
